@@ -1,0 +1,80 @@
+
+    {% extends "Home.html" %}
+
+{% block content %}
+    <h2 class="heading">{{operation}}  Role</h2>
+    <form id="frm" name="frm" method="post" action="/ProcessRoleOperation" enctype="multipart/form-data">
+               
+      
+         <input type="hidden" name="operation" value="{{ operation }}"/>
+         <input type="hidden" name="roleID" value="{{ row.roleID }}"/>
+
+        
+
+                                            <div class="form-group row">
+                                    <label for="roleName" class="col-sm-3 col-form-label">Rolename </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="roleName" id="roleName"  value="{{ row.roleName }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+    <label for="canRole" class="col-sm-3 col-form-label">Canrole </label>
+    <div class="col-sm-9">
+        <input type="checkbox"  name="canRole" id="canRole"  {{ 'checked' if row.canRole == 1 }} {{'disabled' if operation == 'Delete'}} />
+    </div>
+</div>
+                                            
+                                            <div class="form-group row">
+    <label for="canUsers" class="col-sm-3 col-form-label">Canusers </label>
+    <div class="col-sm-9">
+        <input type="checkbox"  name="canUsers" id="canUsers"  {{ 'checked' if row.canUsers == 1 }} {{'disabled' if operation == 'Delete'}} />
+    </div>
+</div>
+                                            
+                                            <div class="form-group row">
+    <label for="canOwner" class="col-sm-3 col-form-label">Canowner </label>
+    <div class="col-sm-9">
+        <input type="checkbox"  name="canOwner" id="canOwner"  {{ 'checked' if row.canOwner == 1 }} {{'disabled' if operation == 'Delete'}} />
+    </div>
+</div>
+                                            
+                                            <div class="form-group row">
+    <label for="canProperty" class="col-sm-3 col-form-label">Canproperty </label>
+    <div class="col-sm-9">
+        <input type="checkbox"  name="canProperty" id="canProperty"  {{ 'checked' if row.canProperty == 1 }} {{'disabled' if operation == 'Delete'}} />
+    </div>
+</div>
+                                            
+                                            <div class="form-group row">
+    <label for="canPropertyType" class="col-sm-3 col-form-label">Canpropertytype </label>
+    <div class="col-sm-9">
+        <input type="checkbox"  name="canPropertyType" id="canPropertyType"  {{ 'checked' if row.canPropertyType == 1 }} {{'disabled' if operation == 'Delete'}} />
+    </div>
+</div>
+                                            
+                                            <div class="form-group row">
+    <label for="canRentalAgreement" class="col-sm-3 col-form-label">Canrentalagreement </label>
+    <div class="col-sm-9">
+        <input type="checkbox"  name="canRentalAgreement" id="canRentalAgreement"  {{ 'checked' if row.canRentalAgreement == 1 }} {{'disabled' if operation == 'Delete'}} />
+    </div>
+</div>
+                                            
+                                            <div class="form-group row">
+    <label for="canTenant" class="col-sm-3 col-form-label">Cantenant </label>
+    <div class="col-sm-9">
+        <input type="checkbox"  name="canTenant" id="canTenant"  {{ 'checked' if row.canTenant == 1 }} {{'disabled' if operation == 'Delete'}} />
+    </div>
+</div>
+                                            
+    
+		
+        <div class="text-center">
+                <button type="submit" class="btn btn-outline-primary btn-sm ">{{operation}}</button>
+                <a href="/RoleListing" class="btn btn-outline-primary btn-sm ">Cancel</a>
+        </div>
+
+    </form>
+    
+{% endblock %}
+    

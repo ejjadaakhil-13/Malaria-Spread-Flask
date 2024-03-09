@@ -1,0 +1,22 @@
+
+    {% extends "Home.html" %}
+
+{% block content %}
+
+    <h3 class="heading text-primary">Correlation Matrix View</h3>
+    <form id="frm" name="frm" method="post" action="/ProcessCorrelationMatrixView " enctype="multipart/form-data">
+        <div class="m-5 text-center">
+                <button type="submit" class="btn btn-outline-primary btn-sm col-sm-1">Generate</button>
+        </div>
+
+    </form>
+    {% if imageFileName | length != 0 %}
+    <div class="text-center">
+        <h5>Correlation Matrix</h5>
+        <img class="img-fluid" src="static/charts/CorrelationMatrix.png" />
+    </div>
+
+    {% endif %}
+    
+{% endblock %}
+    

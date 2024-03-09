@@ -1,0 +1,35 @@
+
+    
+{% extends "Home.html" %}
+
+{% block content %}
+    <h3 class="heading text-primary"> Dataset Listing</h3>
+    
+
+    <table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Dataset Name</th>
+
+      <th scope="col">Action</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for row in fileList %}
+        <tr>
+            <td>{{ row | replace("-", " ") | replace(".csv", "") }}</td>
+
+        <td>
+            <a href="/DatasetView?datasetName={{ row }}" class="btn btn-outline-warning btn-sm ">View</a>
+        </td>
+        </tr>
+    {% endfor %}
+   </tbody>
+</table>
+
+{% endblock %}
+    
+    
+    

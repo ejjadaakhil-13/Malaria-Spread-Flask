@@ -1,0 +1,46 @@
+
+    {% extends "Home.html" %}
+
+{% block content %}
+
+    <h3 class="heading text-primary">Similarity vs Unrelated using Cosine Similarity</h3>
+    <form id="frm" name="frm" method="post" action="/ProcessSimilarityUnrelatedView " enctype="multipart/form-data">
+        <div class="form-group row">
+                <label for="country" class="col-sm-3 col-form-label">Sellerid </label>
+                <div class="col-sm-9">
+                    <select class="form-control" id="country" name="country" >
+                        {% for coun in countries %}
+                            <option value="{{coun}}" {{'selected' if country == coun}}>{{coun}}</option>
+
+                        {% endfor %}
+                    </select>
+                </div>
+        </div>
+        <div class="m-5 text-center">
+                <button type="submit" class="btn btn-outline-primary btn-sm col-sm-1">Generate</button>
+        </div>
+
+    </form>
+    {% if imageFileName | length != 0 %}
+    <div class="list-group">
+      <a href="#" class="list-group-item list-group-item-action active">
+        Top 10 Countries that had cases SIMILAR to {{country}}:
+      </a>
+        {% for scoun in similar %}
+            <a href="#" class="list-group-item list-group-item-action">{{scoun}}</a>
+        {% endfor %}
+    </div>
+    <br/>
+    <div class="list-group">
+      <a href="#" class="list-group-item list-group-item-action active">
+        Top 10 Countries that had cases UNRELATED to {{country}}:
+      </a>
+        {% for ucoun in opposite %}
+            <a href="#" class="list-group-item list-group-item-action">{{ucoun}}</a>
+        {% endfor %}
+    </div>
+
+    {% endif %}
+    
+{% endblock %}
+    

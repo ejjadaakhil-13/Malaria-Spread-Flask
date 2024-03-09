@@ -1,0 +1,24 @@
+
+    {% extends "Home.html" %}
+
+{% block content %}
+
+    <h3 class="heading text-primary">Total Cases Treemap View</h3>
+    <form id="frm" name="frm" method="post" action="/ProcessTotalCasesTreeView " enctype="multipart/form-data">
+        <div class="m-5 text-center">
+                <button type="submit" class="btn btn-outline-primary btn-sm col-sm-1">Generate</button>
+        </div>
+
+    </form>
+    {% if imageFileName | length != 0 %}
+    <div class="text-center">
+        <h5>Treemap Confirmed</h5>
+        <img class="img-fluid" src="static/charts/Treemap-Confirmed.png" />
+        <h5>Treemap Deaths</h5>
+        <img class="img-fluid" src="static/charts/Treemap-Deaths.png" />
+    </div>
+
+    {% endif %}
+    
+{% endblock %}
+    
